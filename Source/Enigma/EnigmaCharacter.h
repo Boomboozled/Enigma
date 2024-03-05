@@ -62,5 +62,17 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+	
+	FORCEINLINE class UEnigmaInventoryComponent* GetInventoryComponent() const { return EnigmaInventoryComponent; }
+
+	class UEnigmaPlayerUI* EnigmaPlayerUI;
+
+protected:
+
+	class UEnigmaInventoryComponent* EnigmaInventoryComponent;
+
+	TSubclassOf<UEnigmaPlayerUI> EnigmaPlayerUIClass;
+
+
 };
 
