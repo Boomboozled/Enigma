@@ -7,7 +7,7 @@
 #include "EnigmaInventoryUI.generated.h"
 
 class UUniformGridPanel;
-class UPanelSlot;
+class UEnigmaInventorySlot;
 
 /**
  * 
@@ -22,10 +22,17 @@ class ENIGMA_API UEnigmaInventoryUI : public UEnigmaUserWidget
 protected:
 	virtual bool Initialize() override; //ensure dependencies.
 
-	UPROPERTY(EditAnywhere, meta = (BindWidget))
+	UPROPERTY(meta = (BindWidget))
 	UUniformGridPanel* InventoryGrid;
 
-	TArray<UPanelSlot*> InventorySlots;
+
+	TArray<UEnigmaInventorySlot*> InventorySlots;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<UEnigmaInventorySlot> InventorySlotClass;
+
+	int Columns;
+	int Rows;
 
 	class UEnigmaInventoryComponent* GetPlayerInventoryComponent();
 

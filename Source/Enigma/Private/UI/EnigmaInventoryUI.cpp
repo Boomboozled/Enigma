@@ -3,10 +3,15 @@
 
 #include "UI/EnigmaInventoryUI.h"
 #include "Enigma/EnigmaCharacter.h"
+#include "EnigmaPlayerController.h"
 #include "Inventory/EnigmaInventoryComponent.h"
+#include "Components/UniformGridPanel.h"
+#include "UI/EnigmaInventorySlot.h"
+
 UEnigmaInventoryUI::UEnigmaInventoryUI()
 {
-
+	Columns = 5;
+	Rows = 0;
 }
 
 bool UEnigmaInventoryUI::Initialize()
@@ -19,11 +24,26 @@ bool UEnigmaInventoryUI::Initialize()
 		return false;
 	}
 
+	AEnigmaPlayerController* EnigmaPlayerController = Cast<AEnigmaPlayerController>(GetOwningPlayer());
 
-	//if (AEnigmaCharacter* OwnerPawn = Cast<AEnigmaCharacter>(GetOwningPlayerPawn());
-	//{
+	int Row = 0;
+	int Column = 0;
 
-	//}
+	for (int i = 0; i < PlayerInventoryComponent->MaxCapacity; i++)
+	{
+		if (InventorySlotClass)
+		{
+			/*todo pointer types*/
+			UEnigmaInventorySlot* InventorySlot = CreateWidget<UEnigmaInventorySlot>(GetOwningPlayer(), InventorySlotClass);
+			Column = i % Columns;
+			Row = i / Columns;
+			InventoryGrid->AddChildToUniformGrid(InventorySlot, Row, Column);
+		}
+		else
+		{
+			break;
+		}
+	}
 	return bSuccessfulInit;
 }
 

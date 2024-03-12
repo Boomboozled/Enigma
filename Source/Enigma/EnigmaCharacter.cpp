@@ -69,11 +69,11 @@ void AEnigmaCharacter::BeginPlay()
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		}
 
-		if (EnigmaPlayerUIClass)
-		{
-			EnigmaPlayerUI = CreateWidget<UEnigmaPlayerUI>(PlayerController, EnigmaPlayerUIClass);
-			
-		}
+		//if (EnigmaPlayerUIClass)
+		//{
+		//	EnigmaPlayerUI = CreateWidget<UEnigmaPlayerUI>(PlayerController, EnigmaPlayerUIClass);
+		//	
+		//}
 	}
 }
 

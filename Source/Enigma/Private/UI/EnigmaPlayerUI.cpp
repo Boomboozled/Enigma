@@ -6,11 +6,14 @@
 void UEnigmaPlayerUI::NativeConstruct()
 {
 	Super::NativeConstruct();
+	UE_LOG(LogTemp, Warning, TEXT(" UEnigmaPlayerUI::NativeConstruct()"))
 }
 
 bool UEnigmaPlayerUI::Initialize()
 {
 	const bool bSuccessfulInit = Super::Initialize();
+
+	
 
 	return bSuccessfulInit;
 }

@@ -65,14 +65,10 @@ public:
 	
 	FORCEINLINE class UEnigmaInventoryComponent* GetInventoryComponent() const { return EnigmaInventoryComponent; }
 
-	class UEnigmaPlayerUI* EnigmaPlayerUI;
-
 protected:
 
+	UPROPERTY(VisibleAnywhere, Category = "Inventory")
 	class UEnigmaInventoryComponent* EnigmaInventoryComponent;
-
-	TSubclassOf<UEnigmaPlayerUI> EnigmaPlayerUIClass;
-
 
 };
 
